@@ -55,7 +55,7 @@ def common_price(m, n, s, l):
 
 
     return "Общая цена составляет " + str(a) + " рублей и " + str(v) + " копеек за " + str(d) + " товаров"
-
+    # Абсолютно верное решение.
 
 
 # Даны: три стороны треугольника.
@@ -100,7 +100,7 @@ def triangle(a, b, c):
         p = (a + b + c)/2
         s = (p * ((p - a) * (p - b) * (p - c))) ** 0.5
         return round(s, 4)
-
+     # Абсолютно верное решение.
 
 # Найти самое длинное слово в введенном предложении.
 # Учтите что в предложении могут быть знаки препинания.
@@ -113,6 +113,7 @@ def longest_word(sentence):
     """
     if sentence != str(sentence) or len(sentence) == 0:
         return False
+    # Тут можно проще if not sentence or type(sentence) != str:
     else:
         sentence = re.sub(r'[.,!:;?"\']', '', sentence).split()
         long_word = ''
@@ -120,7 +121,7 @@ def longest_word(sentence):
             if len(i) >= len(long_word):
                 long_word = i
         return long_word
-
+    # Оч круто, что применены регулярные выражения. 
 
 # Вводится строка. Требуется удалить из нее повторяющиеся символы и все пробелы.
 # Например, если было введено "abc cde def", то должно быть выведено "abcdef".
@@ -136,7 +137,7 @@ def uniques(repeating_string):
         set_ = OrderedDict.fromkeys(repeating_string.replace(' ', ''))
         # C помощью join() склеиваем множество из символов
         return ''.join(set_)
-
+    # Отличное решение! Можно без сторонней библиотеки - см ответы.
 
 # Посчитать количество строчных (маленьких) и прописных (больших) букв в введенной строке.
 # Проверка рассчитана только на английские буквы.
@@ -151,3 +152,4 @@ def count_string_capitalization(mixed_string):
         letters_upper = len(re.findall(r'[A-Z]', mixed_string))
         letters_lower = len(re.findall(r'[a-z]', mixed_string))
         return f"В строке '{mixed_string}' {letters_upper} большие и {letters_lower} маленькие буквы"
+    # Решение супер. Можно встроенными методами - .isupper() .islower()
